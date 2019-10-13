@@ -134,7 +134,7 @@ int ksPrepare(PGconn *conn)
 
 }
 
-int ksInsert(PGconn *conn)
+int ksInsert(PGconn *conn, const char *value)
 {
 
     PGresult *res = NULL;
@@ -150,7 +150,7 @@ int ksInsert(PGconn *conn)
         conn, KS_PSTMT1_NAME,
 
         2, (const char* []) {
-            "EEE",
+            value,
             buff
         },
 
@@ -287,7 +287,7 @@ int main(int argc, const  char* argv[])
 
         // INSERT
 
-        if (KS_OK != (ret = ksInsert(conn))) {
+        if (KS_OK != (ret = ksInsert(conn, "EEE"))) {
             break;
         }
 
