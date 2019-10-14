@@ -21,7 +21,7 @@
  */
 #define KS_TYPE_TIMESTAMP   1114
 #define KS_TYPE_INT4        23
-#define KS_TYPE_CHAR        18
+#define KS_TYPE_CHAR        1042
 #define KS_TYPE_VARCHAR     1043
 
 int ksMakeDate(char *buff, int offset)
@@ -82,14 +82,10 @@ int ksPrepare(PGconn *conn)
 
             2,
 
-#if 1
-            NULL
-#else
             (Oid []) {
                 KS_TYPE_CHAR,
                 KS_TYPE_VARCHAR
             }
-#endif
 
         );
 
