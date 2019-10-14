@@ -80,9 +80,7 @@ int ksPrepare(PGconn *conn)
 
             "SELECT TestPQ.F_UPDATE_TEST($1, $2)",
 
-            2,
-
-            (Oid []) {
+            2, (Oid []) {
                 KS_TYPE_CHAR,
                 KS_TYPE_VARCHAR
             }
