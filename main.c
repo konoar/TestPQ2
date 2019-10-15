@@ -221,16 +221,11 @@ int ksUpdate(PGconn *conn, const char *tid, const char *value)
 
     }
 
-    if (res) {
-        PQclear(res);
-        res = NULL;
-    }
-
+    PQclear(res);
     res = PQexec(conn, "CLOSE mycursor");
 
     if (res) {
         PQclear(res);
-        res = NULL;
     }
 
     putc('\n', stdout);
